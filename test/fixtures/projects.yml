@@ -1,0 +1,5 @@
+production:
+  id: "01900000-0000-7000-8000-000000000030"
+  organization_id: "01900000-0000-7000-8000-000000000010"
+  name: Production
+  description: Production project

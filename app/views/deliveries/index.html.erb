@@ -1,0 +1,36 @@
+<div class="max-w-5xl mx-auto">
+  <h1 class="text-xl font-bold text-white mb-6">Deliveries</h1>
+
+  <div class="bg-gray-900 border border-gray-800 rounded-lg">
+    <% if @deliveries.empty? %>
+      <div class="px-4 py-12 text-center text-gray-500 text-sm">No deliveries yet.</div>
+    <% else %>
+      <table class="w-full text-xs">
+        <thead>
+          <tr class="border-b border-gray-800">
+            <th class="px-4 py-2 text-left text-gray-500 font-normal">Event</th>
+            <th class="px-4 py-2 text-left text-gray-500 font-normal">Endpoint</th>
+            <th class="px-4 py-2 text-left text-gray-500 font-normal">Status</th>
+            <th class="px-4 py-2 text-left text-gray-500 font-normal">Response</th>
+            <th class="px-4 py-2 text-left text-gray-500 font-normal">Attempts</th>
+            <th class="px-4 py-2 text-left text-gray-500 font-normal">Duration</th>
+            <th class="px-4 py-2 text-left text-gray-500 font-normal">When</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @deliveries.each do |d| %>
+            <tr class="border-b border-gray-800/50 hover:bg-gray-800/30 cursor-pointer" onclick="window.location='<%= organization_project_delivery_path(current_organization.slug, @project, d) %>'">
+              <td class="px-4 py-2.5 font-mono text-gray-300"><%= d.event.event_type %></td>
+              <td class="px-4 py-2.5 text-gray-400"><%= d.webhook_endpoint.name %></td>
+              <td class="px-4 py-2.5"><%= status_badge(d.status) %></td>
+              <td class="px-4 py-2.5"><%= http_status_badge(d.last_attempt&.http_status) %></td>
+              <td class="px-4 py-2.5 text-gray-500"><%= d.attempt_count %></td>
+              <td class="px-4 py-2.5 text-gray-500"><%= d.last_attempt&.duration_ms ? "#{d.last_attempt.duration_ms}ms" : "—" %></td>
+              <td class="px-4 py-2.5 text-gray-500"><%= time_ago_in_words(d.created_at) %> ago</td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% end %>
+  </div>
+</div>

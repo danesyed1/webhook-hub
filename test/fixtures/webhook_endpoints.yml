@@ -1,0 +1,10 @@
+production_endpoint:
+  id: "01900000-0000-7000-8000-000000000060"
+  project_id: "01900000-0000-7000-8000-000000000030"
+  name: Production Endpoint
+  url: https://example.com/webhooks
+  enabled: true
+  signing_secret: "whsec_test_secret_0000000000000000000000000000000000000000000000000000000000000000"
+  signing_secret_prefix: "whsec_test_s..."
+  previous_signing_secret:
+  previous_secret_expires_at:

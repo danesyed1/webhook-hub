@@ -1,0 +1,68 @@
+<div class="flex h-full">
+  <%# Sidebar %>
+  <div class="flex flex-col w-56 bg-gray-900 border-r border-gray-800 shrink-0">
+    <div class="flex items-center h-14 px-4 border-b border-gray-800">
+      <a href="<%= root_path %>" class="text-white font-bold tracking-tight">WebhookHub</a>
+    </div>
+
+    <nav class="flex-1 overflow-y-auto py-4 px-2 space-y-1">
+      <%= link_to root_path, class: nav_link_class(root_path) do %>
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+        <span>Overview</span>
+      <% end %>
+
+      <% current_user.organizations.each do |org| %>
+        <div class="pt-2">
+          <p class="px-2 text-xs text-gray-500 uppercase tracking-wider mb-1"><%= org.name %></p>
+          <% org.projects.each do |proj| %>
+            <div class="ml-2 space-y-0.5">
+              <p class="px-2 py-1 text-gray-400 text-xs font-semibold"><%= proj.name %></p>
+              <%= link_to "Overview", organization_project_path(org.slug, proj), class: sub_nav_link_class(organization_project_path(org.slug, proj)) %>
+              <%= link_to "Endpoints", organization_project_endpoints_path(org.slug, proj), class: sub_nav_link_class(organization_project_endpoints_path(org.slug, proj)) %>
+              <%= link_to "Events", organization_project_events_path(org.slug, proj), class: sub_nav_link_class(organization_project_events_path(org.slug, proj)) %>
+              <%= link_to "Deliveries", organization_project_deliveries_path(org.slug, proj), class: sub_nav_link_class(organization_project_deliveries_path(org.slug, proj)) %>
+              <%= link_to "API Keys", organization_project_api_keys_path(org.slug, proj), class: sub_nav_link_class(organization_project_api_keys_path(org.slug, proj)) %>
+            </div>
+          <% end %>
+          <%= link_to "+ New Project", new_organization_project_path(org.slug), class: "block px-2 py-1 ml-2 text-xs text-indigo-400 hover:text-indigo-300" %>
+        </div>
+      <% end %>
+    </nav>
+
+    <div class="border-t border-gray-800 p-3">
+      <div class="flex items-center justify-between">
+        <span class="text-gray-400 text-xs truncate"><%= current_user.email %></span>
+        <%= button_to "Sign out", logout_path, method: :delete, class: "text-xs text-gray-500 hover:text-gray-300" %>
+      </div>
+    </div>
+  </div>
+
+  <%# Main content %>
+  <div class="flex-1 flex flex-col min-w-0 overflow-hidden">
+    <%# Flash messages %>
+    <% if flash[:notice] || flash[:alert] || flash[:secret] || flash[:raw_key] %>
+      <div class="px-6 pt-4">
+        <% if flash[:notice] %>
+          <div class="rounded bg-green-900/50 border border-green-700 text-green-300 px-4 py-3 text-sm flex justify-between">
+            <%= flash[:notice] %>
+          </div>
+        <% end %>
+        <% if flash[:alert] %>
+          <div class="rounded bg-red-900/50 border border-red-700 text-red-300 px-4 py-3 text-sm">
+            <%= flash[:alert] %>
+          </div>
+        <% end %>
+        <% if flash[:secret] || flash[:raw_key] %>
+          <div class="rounded bg-amber-900/50 border border-amber-700 text-amber-300 px-4 py-3 text-sm">
+            <p class="font-semibold mb-1">Copy this key now — it won't be shown again:</p>
+            <code class="bg-gray-950 px-2 py-1 rounded text-amber-200 block"><%= flash[:secret] || flash[:raw_key] %></code>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+
+    <main class="flex-1 overflow-y-auto p-6">
+      <%= yield %>
+    </main>
+  </div>
+</div>

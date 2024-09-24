@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html class="h-full bg-gray-950">
+  <head>
+    <title><%= content_for(:title) || "WebhookHub" %></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= yield :head %>
+    <%= stylesheet_link_tag "tailwind", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body class="h-full font-mono text-sm antialiased">
+    <% if logged_in? %>
+      <%= render "layouts/app_shell" %>
+    <% else %>
+      <div class="min-h-screen flex items-center justify-center bg-gray-950">
+        <%= yield %>
+      </div>
+    <% end %>
+  </body>
+</html>

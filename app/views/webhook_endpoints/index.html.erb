@@ -1,0 +1,41 @@
+<div class="max-w-4xl mx-auto">
+  <div class="flex items-center justify-between mb-6">
+    <h1 class="text-xl font-bold text-white">Endpoints</h1>
+    <%= link_to "+ New endpoint", new_organization_project_endpoint_path(current_organization.slug, @project), class: "bg-indigo-600 hover:bg-indigo-500 text-white rounded px-3 py-1.5 text-xs" %>
+  </div>
+
+  <% if @endpoints.empty? %>
+    <div class="border border-dashed border-gray-700 rounded-lg p-12 text-center">
+      <p class="text-gray-500 mb-2 text-sm">No endpoints yet.</p>
+      <p class="text-gray-600 text-xs mb-4">Add an endpoint to start receiving webhook events.</p>
+      <%= link_to "Create your first endpoint", new_organization_project_endpoint_path(current_organization.slug, @project), class: "text-indigo-400 hover:text-indigo-300 text-sm" %>
+    </div>
+  <% else %>
+    <div class="bg-gray-900 border border-gray-800 rounded-lg divide-y divide-gray-800">
+      <% @endpoints.each do |ep| %>
+        <div class="px-4 py-4 flex items-center justify-between">
+          <div class="min-w-0">
+            <div class="flex items-center gap-2 mb-1">
+              <span class="inline-block w-2 h-2 rounded-full <%= ep.enabled? ? 'bg-green-400' : 'bg-gray-600' %>"></span>
+              <span class="text-white text-sm font-medium"><%= ep.name %></span>
+            </div>
+            <p class="text-gray-500 text-xs font-mono truncate"><%= ep.url %></p>
+            <div class="flex gap-2 mt-1.5">
+              <% ep.event_types.first(3).each do |et| %>
+                <span class="text-xs text-gray-600 bg-gray-800 rounded px-1.5 py-0.5 font-mono"><%= et.name %></span>
+              <% end %>
+              <% if ep.event_types.count > 3 %>
+                <span class="text-xs text-gray-600">+<%= ep.event_types.count - 3 %> more</span>
+              <% end %>
+            </div>
+          </div>
+          <div class="flex items-center gap-3 shrink-0">
+            <% stats = ep.delivery_stats %>
+            <span class="text-xs text-gray-500"><%= stats[:success_rate] %>% success</span>
+            <%= link_to "Manage", organization_project_endpoint_path(current_organization.slug, @project, ep), class: "text-xs text-indigo-400 hover:text-indigo-300" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>

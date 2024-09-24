@@ -1,0 +1,47 @@
+<% form_url = @endpoint.new_record? ? organization_project_endpoints_path(current_organization.slug, @project) : organization_project_endpoint_path(current_organization.slug, @project, @endpoint) %>
+<%= form_with model: @endpoint, url: form_url, method: @endpoint.new_record? ? :post : :patch, class: "space-y-4" do |f| %>
+  <% if @endpoint.errors.any? %>
+    <div class="bg-red-900/30 border border-red-700 rounded px-3 py-2 text-red-400 text-xs">
+      <% @endpoint.errors.full_messages.each do |msg| %><p><%= msg %></p><% end %>
+    </div>
+  <% end %>
+
+  <div>
+    <%= f.label :name, "Name", class: "block text-xs text-gray-400 mb-1" %>
+    <%= f.text_field :name, class: "w-full bg-gray-950 border border-gray-700 rounded px-3 py-2 text-white text-sm focus:outline-none focus:border-indigo-500", placeholder: "Production Webhooks" %>
+  </div>
+
+  <div>
+    <%= f.label :url, "URL", class: "block text-xs text-gray-400 mb-1" %>
+    <%= f.url_field :url, class: "w-full bg-gray-950 border border-gray-700 rounded px-3 py-2 text-white text-sm font-mono focus:outline-none focus:border-indigo-500", placeholder: "https://api.example.com/webhooks" %>
+    <p class="text-xs text-gray-600 mt-1">Must be a publicly accessible HTTPS endpoint.</p>
+  </div>
+
+  <div>
+    <%= f.label :description, "Description (optional)", class: "block text-xs text-gray-400 mb-1" %>
+    <%= f.text_field :description, class: "w-full bg-gray-950 border border-gray-700 rounded px-3 py-2 text-white text-sm focus:outline-none focus:border-indigo-500" %>
+  </div>
+
+  <div>
+    <label class="block text-xs text-gray-400 mb-2">Subscribed Events</label>
+    <div class="space-y-1.5 bg-gray-950 border border-gray-700 rounded p-3">
+      <% @event_types.each do |et| %>
+        <label class="flex items-center gap-2 cursor-pointer">
+          <%= check_box_tag "event_type_ids[]", et.id, @endpoint.event_types.include?(et),
+              class: "rounded border-gray-600 bg-gray-900 text-indigo-500" %>
+          <span class="text-xs text-gray-300 font-mono"><%= et.name %></span>
+        </label>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="flex items-center gap-2">
+    <%= f.check_box :enabled, class: "rounded border-gray-600 bg-gray-900 text-indigo-500" %>
+    <%= f.label :enabled, "Enable this endpoint", class: "text-xs text-gray-400" %>
+  </div>
+
+  <div class="flex gap-2 pt-2">
+    <%= f.submit @endpoint.new_record? ? "Create Endpoint" : "Save Changes", class: "bg-indigo-600 hover:bg-indigo-500 text-white rounded px-4 py-2 text-sm font-medium cursor-pointer" %>
+    <%= link_to "Cancel", organization_project_endpoints_path(current_organization.slug, @project), class: "text-gray-400 hover:text-white text-sm px-4 py-2" %>
+  </div>
+<% end %>

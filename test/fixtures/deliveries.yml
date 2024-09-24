@@ -1,0 +1,15 @@
+pending_delivery:
+  id: "01900000-0000-7000-8000-000000000090"
+  event_id: "01900000-0000-7000-8000-000000000080"
+  webhook_endpoint_id: "01900000-0000-7000-8000-000000000060"
+  status: pending
+  attempt_count: 0
+  next_attempt_at: <%= 1.minute.from_now.iso8601 %>
+
+failed_delivery:
+  id: "01900000-0000-7000-8000-000000000091"
+  event_id: "01900000-0000-7000-8000-000000000081"
+  webhook_endpoint_id: "01900000-0000-7000-8000-000000000060"
+  status: failed
+  attempt_count: 5
+  next_attempt_at:

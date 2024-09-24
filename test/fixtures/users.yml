@@ -1,0 +1,11 @@
+alice:
+  id: "01900000-0000-7000-8000-000000000001"
+  name: Alice Test
+  email: alice@example.com
+  password_digest: <%= BCrypt::Password.create("password123") %>
+
+bob:
+  id: "01900000-0000-7000-8000-000000000002"
+  name: Bob Test
+  email: bob@example.com
+  password_digest: <%= BCrypt::Password.create("password456") %>

@@ -1,0 +1,26 @@
+<div class="max-w-lg mx-auto">
+  <h1 class="text-xl font-bold text-white mb-6">New Project</h1>
+
+  <%= form_with model: [@organization || current_organization, @project], url: organization_projects_path(current_organization.slug), class: "bg-gray-900 border border-gray-800 rounded-lg p-6 space-y-4" do |f| %>
+    <% if @project.errors.any? %>
+      <div class="bg-red-900/30 border border-red-700 rounded px-3 py-2 text-red-400 text-xs">
+        <% @project.errors.full_messages.each do |msg| %><p><%= msg %></p><% end %>
+      </div>
+    <% end %>
+
+    <div>
+      <%= f.label :name, "Project name", class: "block text-xs text-gray-400 mb-1" %>
+      <%= f.text_field :name, class: "w-full bg-gray-950 border border-gray-700 rounded px-3 py-2 text-white text-sm focus:outline-none focus:border-indigo-500", placeholder: "Production", autofocus: true %>
+    </div>
+
+    <div>
+      <%= f.label :description, "Description (optional)", class: "block text-xs text-gray-400 mb-1" %>
+      <%= f.text_area :description, rows: 2, class: "w-full bg-gray-950 border border-gray-700 rounded px-3 py-2 text-white text-sm focus:outline-none focus:border-indigo-500", placeholder: "Production environment webhooks" %>
+    </div>
+
+    <div class="flex gap-2 pt-2">
+      <%= f.submit "Create project", class: "bg-indigo-600 hover:bg-indigo-500 text-white rounded px-4 py-2 text-sm font-medium cursor-pointer" %>
+      <%= link_to "Cancel", organization_path(current_organization.slug), class: "text-gray-400 hover:text-white text-sm px-4 py-2" %>
+    </div>
+  <% end %>
+</div>
