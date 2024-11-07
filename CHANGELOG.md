@@ -10,3 +10,6 @@ All notable changes to webhook-hub are documented here.
 
 ## [2024-10-26] feat: add DeliverWebhookJob Sidekiq job for async delivery
 - DeliverWebhookJob performs HTTP POST to endpoint URL with signed payload, records DeliveryAttempt
+
+## [2024-11-07] feat: implement HMAC-SHA256 signing for webhook payloads
+- WebhookDeliveryService computes X-Webhook-Signature header using endpoint secret and SHA-256 HMAC
