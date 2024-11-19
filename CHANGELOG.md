@@ -13,3 +13,6 @@ All notable changes to webhook-hub are documented here.
 
 ## [2024-11-07] feat: implement HMAC-SHA256 signing for webhook payloads
 - WebhookDeliveryService computes X-Webhook-Signature header using endpoint secret and SHA-256 HMAC
+
+## [2024-11-19] feat: add exponential backoff retry policy (5 attempts, 30s base)
+- Sidekiq retry schedule: 30s, 2m, 8m, 32m, 2h; max_retries set to 5 on DeliverWebhookJob
