@@ -16,3 +16,6 @@ All notable changes to webhook-hub are documented here.
 
 ## [2024-11-19] feat: add exponential backoff retry policy (5 attempts, 30s base)
 - Sidekiq retry schedule: 30s, 2m, 8m, 32m, 2h; max_retries set to 5 on DeliverWebhookJob
+
+## [2024-12-01] feat: implement delivery attempt recording with request/response log
+- DeliveryAttempt stores status_code, response_body (truncated to 10KB), duration_ms, attempted_at
