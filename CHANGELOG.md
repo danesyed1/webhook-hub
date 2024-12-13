@@ -19,3 +19,6 @@ All notable changes to webhook-hub are documented here.
 
 ## [2024-12-01] feat: implement delivery attempt recording with request/response log
 - DeliveryAttempt stores status_code, response_body (truncated to 10KB), duration_ms, attempted_at
+
+## [2024-12-13] feat: add Hotwire dashboard for endpoint and delivery management
+- Turbo-powered views for listing endpoints, viewing delivery history, and inspecting attempt payloads
