@@ -22,3 +22,6 @@ All notable changes to webhook-hub are documented here.
 
 ## [2024-12-13] feat: add Hotwire dashboard for endpoint and delivery management
 - Turbo-powered views for listing endpoints, viewing delivery history, and inspecting attempt payloads
+
+## [2024-12-25] feat: add manual retry button on failed delivery attempts
+- DeliveriesController#retry re-enqueues DeliverWebhookJob for a specific delivery; Turbo updates status
