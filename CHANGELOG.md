@@ -25,3 +25,6 @@ All notable changes to webhook-hub are documented here.
 
 ## [2024-12-25] feat: add manual retry button on failed delivery attempts
 - DeliveriesController#retry re-enqueues DeliverWebhookJob for a specific delivery; Turbo updates status
+
+## [2025-01-06] feat: implement event fan-out to all subscribed endpoints
+- FanOutWebhookJob creates one Delivery per matching WebhookEndpoint and enqueues individual delivery jobs
