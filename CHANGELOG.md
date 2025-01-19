@@ -28,3 +28,6 @@ All notable changes to webhook-hub are documented here.
 
 ## [2025-01-06] feat: implement event fan-out to all subscribed endpoints
 - FanOutWebhookJob creates one Delivery per matching WebhookEndpoint and enqueues individual delivery jobs
+
+## [2025-01-19] fix: Sidekiq job not persisting delivery attempt on network timeout
+- Rescue Net::OpenTimeout and Net::ReadTimeout before Sidekiq retry to ensure attempt record is written
