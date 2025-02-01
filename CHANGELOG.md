@@ -31,3 +31,6 @@ All notable changes to webhook-hub are documented here.
 
 ## [2025-01-19] fix: Sidekiq job not persisting delivery attempt on network timeout
 - Rescue Net::OpenTimeout and Net::ReadTimeout before Sidekiq retry to ensure attempt record is written
+
+## [2025-02-01] feat: add SSRF protection by blocking private IP ranges
+- SsrfGuard resolves endpoint URL hostname and rejects RFC-1918, loopback, and link-local addresses
