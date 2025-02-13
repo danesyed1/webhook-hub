@@ -34,3 +34,6 @@ All notable changes to webhook-hub are documented here.
 
 ## [2025-02-01] feat: add SSRF protection by blocking private IP ranges
 - SsrfGuard resolves endpoint URL hostname and rejects RFC-1918, loopback, and link-local addresses
+
+## [2025-02-13] feat: implement API key rotation without downtime
+- ApiKey#rotate! generates new token with 24h overlap window; old key remains valid during transition
