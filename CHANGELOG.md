@@ -37,3 +37,6 @@ All notable changes to webhook-hub are documented here.
 
 ## [2025-02-13] feat: implement API key rotation without downtime
 - ApiKey#rotate! generates new token with 24h overlap window; old key remains valid during transition
+
+## [2025-02-26] feat: add per-endpoint event type filtering
+- EndpointEventType join table; fan-out skips endpoints not subscribed to the incoming event type
