@@ -40,3 +40,6 @@ All notable changes to webhook-hub are documented here.
 
 ## [2025-02-26] feat: add per-endpoint event type filtering
 - EndpointEventType join table; fan-out skips endpoints not subscribed to the incoming event type
+
+## [2025-03-11] refactor: extract WebhookDeliveryService from job class
+- Moved HTTP dispatch, signing, and attempt recording into WebhookDeliveryService; job now delegates
