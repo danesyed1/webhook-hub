@@ -43,3 +43,6 @@ All notable changes to webhook-hub are documented here.
 
 ## [2025-03-11] refactor: extract WebhookDeliveryService from job class
 - Moved HTTP dispatch, signing, and attempt recording into WebhookDeliveryService; job now delegates
+
+## [2025-03-24] feat: add delivery status webhook (success/failure/retrying)
+- Optional meta-endpoint receives a signed callback for each delivery state transition
