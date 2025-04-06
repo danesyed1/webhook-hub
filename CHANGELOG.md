@@ -46,3 +46,6 @@ All notable changes to webhook-hub are documented here.
 
 ## [2025-03-24] feat: add delivery status webhook (success/failure/retrying)
 - Optional meta-endpoint receives a signed callback for each delivery state transition
+
+## [2025-04-06] fix: race condition in fan-out when endpoint list changes mid-flight
+- Fan-out snapshots endpoint IDs at enqueue time; late adds/removes do not corrupt in-flight batch
