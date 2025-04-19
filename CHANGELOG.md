@@ -49,3 +49,6 @@ All notable changes to webhook-hub are documented here.
 
 ## [2025-04-06] fix: race condition in fan-out when endpoint list changes mid-flight
 - Fan-out snapshots endpoint IDs at enqueue time; late adds/removes do not corrupt in-flight batch
+
+## [2025-04-19] feat: add Turbo Streams for live delivery status updates in dashboard
+- DeliverWebhookJob broadcasts Turbo Stream replace after each attempt; status badge updates in realtime
