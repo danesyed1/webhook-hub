@@ -52,3 +52,6 @@ All notable changes to webhook-hub are documented here.
 
 ## [2025-04-19] feat: add Turbo Streams for live delivery status updates in dashboard
 - DeliverWebhookJob broadcasts Turbo Stream replace after each attempt; status badge updates in realtime
+
+## [2025-05-02] feat: implement org-level API usage analytics
+- Track events ingested, deliveries attempted, and success rate per organization per day in analytics table
