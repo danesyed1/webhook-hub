@@ -55,3 +55,6 @@ All notable changes to webhook-hub are documented here.
 
 ## [2025-05-02] feat: implement org-level API usage analytics
 - Track events ingested, deliveries attempted, and success rate per organization per day in analytics table
+
+## [2025-05-15] feat: add custom HTTP headers per endpoint configuration
+- WebhookEndpoint#custom_headers JSONB column; merged into outbound request before signing
