@@ -58,3 +58,6 @@ All notable changes to webhook-hub are documented here.
 
 ## [2025-05-15] feat: add custom HTTP headers per endpoint configuration
 - WebhookEndpoint#custom_headers JSONB column; merged into outbound request before signing
+
+## [2025-05-28] fix: HMAC signature mismatch when payload contains non-ASCII chars
+- Force UTF-8 encoding on raw body before HMAC digest; fixes signature drift for emoji-heavy payloads
