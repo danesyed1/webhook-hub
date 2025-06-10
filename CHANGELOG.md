@@ -61,3 +61,6 @@ All notable changes to webhook-hub are documented here.
 
 ## [2025-05-28] fix: HMAC signature mismatch when payload contains non-ASCII chars
 - Force UTF-8 encoding on raw body before HMAC digest; fixes signature drift for emoji-heavy payloads
+
+## [2025-06-10] feat: add endpoint health score based on recent delivery success rate
+- HealthScoreCalculator computes rolling 7-day success % and exposes it in endpoint show view
