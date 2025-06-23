@@ -64,3 +64,6 @@ All notable changes to webhook-hub are documented here.
 
 ## [2025-06-10] feat: add endpoint health score based on recent delivery success rate
 - HealthScoreCalculator computes rolling 7-day success % and exposes it in endpoint show view
+
+## [2025-06-23] feat: implement IP allowlist per endpoint for security
+- WebhookEndpoint#allowed_ips array column; delivery blocked if source IP not in allowlist when set
