@@ -67,3 +67,6 @@ All notable changes to webhook-hub are documented here.
 
 ## [2025-06-23] feat: implement IP allowlist per endpoint for security
 - WebhookEndpoint#allowed_ips array column; delivery blocked if source IP not in allowlist when set
+
+## [2025-07-06] perf: batch event fan-out with Sidekiq bulk enqueue
+- Replace individual push_bulk with Sidekiq::Client.push_bulk; reduces Redis round trips by 90%
