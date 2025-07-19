@@ -70,3 +70,6 @@ All notable changes to webhook-hub are documented here.
 
 ## [2025-07-06] perf: batch event fan-out with Sidekiq bulk enqueue
 - Replace individual push_bulk with Sidekiq::Client.push_bulk; reduces Redis round trips by 90%
+
+## [2025-07-19] feat: add Stimulus controller for real-time delivery log filtering
+- FilterController filters delivery attempts by status client-side without full page reload
