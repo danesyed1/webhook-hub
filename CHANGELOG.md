@@ -73,3 +73,6 @@ All notable changes to webhook-hub are documented here.
 
 ## [2025-07-19] feat: add Stimulus controller for real-time delivery log filtering
 - FilterController filters delivery attempts by status client-side without full page reload
+
+## [2025-08-01] fix: delivery log truncated for large response bodies over 64KB
+- Increased response_body column to text (unbounded); truncate to 100KB at application layer with notice
