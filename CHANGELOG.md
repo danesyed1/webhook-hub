@@ -76,3 +76,6 @@ All notable changes to webhook-hub are documented here.
 
 ## [2025-08-01] fix: delivery log truncated for large response bodies over 64KB
 - Increased response_body column to text (unbounded); truncate to 100KB at application layer with notice
+
+## [2025-08-14] feat: add circuit breaker — pause delivery after 10 consecutive failures
+- CircuitBreaker opens after 10 consecutive failures; endpoint auto-paused with notification to project owner
