@@ -79,3 +79,6 @@ All notable changes to webhook-hub are documented here.
 
 ## [2025-08-14] feat: add circuit breaker — pause delivery after 10 consecutive failures
 - CircuitBreaker opens after 10 consecutive failures; endpoint auto-paused with notification to project owner
+
+## [2025-08-27] refactor: move API authentication to Concern module
+- Extracted ApiAuthentication concern; included in Api::BaseController for reuse across v1 and v2 routes
