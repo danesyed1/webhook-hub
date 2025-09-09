@@ -82,3 +82,6 @@ All notable changes to webhook-hub are documented here.
 
 ## [2025-08-27] refactor: move API authentication to Concern module
 - Extracted ApiAuthentication concern; included in Api::BaseController for reuse across v1 and v2 routes
+
+## [2025-09-09] feat: add event schema validation with JSON Schema per event type
+- EventType#schema JSONB column; incoming event data validated against schema before fan-out
