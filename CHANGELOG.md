@@ -85,3 +85,6 @@ All notable changes to webhook-hub are documented here.
 
 ## [2025-09-09] feat: add event schema validation with JSON Schema per event type
 - EventType#schema JSONB column; incoming event data validated against schema before fan-out
+
+## [2025-09-22] feat: implement delivery export as CSV for compliance audits
+- DeliveriesController#export streams CSV with attempt timestamps, status codes, and latency
