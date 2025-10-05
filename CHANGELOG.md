@@ -88,3 +88,6 @@ All notable changes to webhook-hub are documented here.
 
 ## [2025-09-22] feat: implement delivery export as CSV for compliance audits
 - DeliveriesController#export streams CSV with attempt timestamps, status codes, and latency
+
+## [2025-10-05] fix: Sidekiq retry exhaustion not updating delivery status to failed
+- Added sidekiq_retries_exhausted block to set delivery.status = :failed and notify owner
