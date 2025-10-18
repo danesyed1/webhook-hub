@@ -91,3 +91,6 @@ All notable changes to webhook-hub are documented here.
 
 ## [2025-10-05] fix: Sidekiq retry exhaustion not updating delivery status to failed
 - Added sidekiq_retries_exhausted block to set delivery.status = :failed and notify owner
+
+## [2025-10-18] feat: add rate limiting per API key with Rack::Attack
+- Rack::Attack throttle on api_key + IP; 100 req/min default, configurable via API_RATE_LIMIT env var
