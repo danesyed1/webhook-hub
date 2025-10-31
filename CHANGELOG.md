@@ -94,3 +94,6 @@ All notable changes to webhook-hub are documented here.
 
 ## [2025-10-18] feat: add rate limiting per API key with Rack::Attack
 - Rack::Attack throttle on api_key + IP; 100 req/min default, configurable via API_RATE_LIMIT env var
+
+## [2025-10-31] feat: add team member invites via email
+- Membership invitation flow: org admin sends invite email; recipient registers or links existing account
