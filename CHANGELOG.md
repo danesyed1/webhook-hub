@@ -97,3 +97,6 @@ All notable changes to webhook-hub are documented here.
 
 ## [2025-10-31] feat: add team member invites via email
 - Membership invitation flow: org admin sends invite email; recipient registers or links existing account
+
+## [2025-11-13] perf: add partial index on deliveries.status for pending queue
+- CREATE INDEX CONCURRENTLY on deliveries(status) WHERE status IN ('pending','retrying') halves queue scan time
