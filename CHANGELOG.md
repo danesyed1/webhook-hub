@@ -100,3 +100,6 @@ All notable changes to webhook-hub are documented here.
 
 ## [2025-11-13] perf: add partial index on deliveries.status for pending queue
 - CREATE INDEX CONCURRENTLY on deliveries(status) WHERE status IN ('pending','retrying') halves queue scan time
+
+## [2025-11-26] feat: add event replay from dashboard with idempotency key
+- Events#replay re-ingests original payload with same idempotency key; skips if already processed
