@@ -103,3 +103,6 @@ All notable changes to webhook-hub are documented here.
 
 ## [2025-11-26] feat: add event replay from dashboard with idempotency key
 - Events#replay re-ingests original payload with same idempotency key; skips if already processed
+
+## [2025-12-09] fix: duplicate deliveries when Sidekiq worker crashes after ack
+- Use Lua script to dequeue + mark in-flight atomically; prevents re-delivery on ungraceful shutdown
