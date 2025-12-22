@@ -106,3 +106,6 @@ All notable changes to webhook-hub are documented here.
 
 ## [2025-12-09] fix: duplicate deliveries when Sidekiq worker crashes after ack
 - Use Lua script to dequeue + mark in-flight atomically; prevents re-delivery on ungraceful shutdown
+
+## [2025-12-22] feat: add endpoint secret rotation with 24hr overlap window
+- WebhookEndpoint#rotate_secret! sets next_secret; both secrets valid for 24h then old one cleared
