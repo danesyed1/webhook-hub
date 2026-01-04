@@ -109,3 +109,6 @@ All notable changes to webhook-hub are documented here.
 
 ## [2025-12-22] feat: add endpoint secret rotation with 24hr overlap window
 - WebhookEndpoint#rotate_secret! sets next_secret; both secrets valid for 24h then old one cleared
+
+## [2026-01-04] feat: implement delivery SLA tracking and breach alerts
+- Track p95 delivery latency per endpoint; alert owner via email when SLA threshold exceeded
