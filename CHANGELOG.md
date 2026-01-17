@@ -112,3 +112,6 @@ All notable changes to webhook-hub are documented here.
 
 ## [2026-01-04] feat: implement delivery SLA tracking and breach alerts
 - Track p95 delivery latency per endpoint; alert owner via email when SLA threshold exceeded
+
+## [2026-01-17] refactor: migrate to Rails encrypted credentials for secrets
+- Moved Sidekiq password, DB password, SMTP credentials from .env to config/credentials.yml.enc
