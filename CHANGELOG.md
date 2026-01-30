@@ -115,3 +115,6 @@ All notable changes to webhook-hub are documented here.
 
 ## [2026-01-17] refactor: migrate to Rails encrypted credentials for secrets
 - Moved Sidekiq password, DB password, SMTP credentials from .env to config/credentials.yml.enc
+
+## [2026-01-30] feat: add Webhook Debugger — send test events to any endpoint
+- DebugController accepts test payload, delivers synchronously, returns full request/response for inspection
