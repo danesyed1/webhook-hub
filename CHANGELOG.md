@@ -118,3 +118,6 @@ All notable changes to webhook-hub are documented here.
 
 ## [2026-01-30] feat: add Webhook Debugger — send test events to any endpoint
 - DebugController accepts test payload, delivers synchronously, returns full request/response for inspection
+
+## [2026-02-12] fix: API pagination cursor not stable under concurrent writes
+- Switched from OFFSET to keyset pagination on (created_at, id) to prevent row skips under write load
