@@ -121,3 +121,6 @@ All notable changes to webhook-hub are documented here.
 
 ## [2026-02-12] fix: API pagination cursor not stable under concurrent writes
 - Switched from OFFSET to keyset pagination on (created_at, id) to prevent row skips under write load
+
+## [2026-02-25] feat: add multi-workspace support with subdomain routing
+- Organization mapped to subdomain; request routing scopes all resources to current org via subdomain
