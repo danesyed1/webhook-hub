@@ -124,3 +124,6 @@ All notable changes to webhook-hub are documented here.
 
 ## [2026-02-25] feat: add multi-workspace support with subdomain routing
 - Organization mapped to subdomain; request routing scopes all resources to current org via subdomain
+
+## [2026-03-10] feat: implement event archival to S3 after 30 days
+- ArchiveEventsJob runs nightly; serializes events older than 30d to S3 Parquet and soft-deletes rows
