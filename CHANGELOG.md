@@ -127,3 +127,6 @@ All notable changes to webhook-hub are documented here.
 
 ## [2026-03-10] feat: implement event archival to S3 after 30 days
 - ArchiveEventsJob runs nightly; serializes events older than 30d to S3 Parquet and soft-deletes rows
+
+## [2026-03-24] fix: Turbo Frame not refreshing delivery count badge
+- Added data-turbo-action='advance' and correct frame ID to badge partial; count now updates after retry
