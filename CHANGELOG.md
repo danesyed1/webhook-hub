@@ -130,3 +130,6 @@ All notable changes to webhook-hub are documented here.
 
 ## [2026-03-24] fix: Turbo Frame not refreshing delivery count badge
 - Added data-turbo-action='advance' and correct frame ID to badge partial; count now updates after retry
+
+## [2026-04-07] feat: add Slack notification integration for delivery failures
+- SlackNotifier posts to webhook URL on circuit open or SLA breach; configurable per project
