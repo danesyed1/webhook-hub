@@ -133,3 +133,6 @@ All notable changes to webhook-hub are documented here.
 
 ## [2026-04-07] feat: add Slack notification integration for delivery failures
 - SlackNotifier posts to webhook URL on circuit open or SLA breach; configurable per project
+
+## [2026-04-21] perf: eager load associations in delivery list to eliminate N+1
+- Added includes(:delivery_attempts, webhook_endpoint: :project) to deliveries index query
