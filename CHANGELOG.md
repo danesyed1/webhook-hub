@@ -136,3 +136,6 @@ All notable changes to webhook-hub are documented here.
 
 ## [2026-04-21] perf: eager load associations in delivery list to eliminate N+1
 - Added includes(:delivery_attempts, webhook_endpoint: :project) to deliveries index query
+
+## [2026-05-05] feat: add GraphQL subscription for real-time delivery events
+- GraphQL subscription over ActionCable streams delivery status changes to connected dashboard clients
