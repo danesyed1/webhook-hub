@@ -139,3 +139,6 @@ All notable changes to webhook-hub are documented here.
 
 ## [2026-05-05] feat: add GraphQL subscription for real-time delivery events
 - GraphQL subscription over ActionCable streams delivery status changes to connected dashboard clients
+
+## [2026-05-19] feat: implement TLS certificate pinning option per endpoint
+- WebhookEndpoint#pin_certificate stores PEM fingerprint; delivery fails if server cert does not match
