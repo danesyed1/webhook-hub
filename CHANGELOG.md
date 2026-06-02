@@ -142,3 +142,6 @@ All notable changes to webhook-hub are documented here.
 
 ## [2026-05-19] feat: implement TLS certificate pinning option per endpoint
 - WebhookEndpoint#pin_certificate stores PEM fingerprint; delivery fails if server cert does not match
+
+## [2026-06-02] fix: memory growth in Sidekiq worker processing large event batches
+- Fixed response body held in memory across retries; clear body reference after DeliveryAttempt#save
