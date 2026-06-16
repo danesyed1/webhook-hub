@@ -145,3 +145,6 @@ All notable changes to webhook-hub are documented here.
 
 ## [2026-06-02] fix: memory growth in Sidekiq worker processing large event batches
 - Fixed response body held in memory across retries; clear body reference after DeliveryAttempt#save
+
+## [2026-06-16] feat: add developer portal with interactive API docs
+- Mounted OpenAPI 3.1 spec at /api/docs; rendered with Scalar UI for interactive request testing
