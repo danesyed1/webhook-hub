@@ -148,3 +148,6 @@ All notable changes to webhook-hub are documented here.
 
 ## [2026-06-16] feat: add developer portal with interactive API docs
 - Mounted OpenAPI 3.1 spec at /api/docs; rendered with Scalar UI for interactive request testing
+
+## [2026-06-30] chore: upgrade to Rails 8.2 and Ruby 3.4
+- Bumped Rails to 8.2.0, Ruby to 3.4.0; resolved deprecation warnings and updated Gemfile.lock
