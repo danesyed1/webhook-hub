@@ -30,7 +30,7 @@ gem "sidekiq", "~> 8.0"
 gem "rack-attack"
 
 # HTTP client for webhook delivery
-gem "faraday", "~> 2.0"
+gem "faraday", "~> 2.15"
 
 # UUIDs
 gem "uuid7"
